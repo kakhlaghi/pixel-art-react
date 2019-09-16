@@ -10,9 +10,9 @@ export default class Cell extends Component {
 
     colorChange = () => {
         this.setState(function(state){
-            return state.background === "white"
+            return state.background === "blue"
             ? { background: this.props.color }
-            : { background: "white" }
+            : { background: "blue" }
         });
     }
 
@@ -33,11 +33,17 @@ export default class Cell extends Component {
     }
 
     render() {
+        console.log("hit")
         return(
             <div className="cell" 
             onClick={()=> {this.colorChange()}}
-            onmouseleave={() => {
+            onMouseLeave={() => {
                 if(this.props.isMouseDown) {
+                    this.paint();
+                }
+            }}
+            onMouseEnter={() => {
+                if(this.props.isMouseDown){
                     this.paint();
                 }
             }}

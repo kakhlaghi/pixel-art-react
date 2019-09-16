@@ -14,19 +14,21 @@ export default class Canvas extends Component {
     }
 
     componentDidMount(){
-       const grid = () =>{ 
-           let arr = [];
-            for(let x = 0; x <= this.state.height; x++){
-                arr = [...arr, <Cell isMouseDown={this.state.isMouseDown} />]
-            }
-        }
     }
 
 
     render(){
-
+        const grid = () =>{ 
+            let arr = [];
+            console.log('arr ', arr)
+             for(let x = 0; x <= this.state.height; x++){
+                 arr = [...arr, <Cell isMouseDown={this.state.isMouseDown} />]
+             }
+             return arr;
+         }
         return (
             <div>
+                {grid()}
             </div>
         )
     }
